@@ -61,8 +61,6 @@ function onSearchEnd(){
 			const {lat, lon} = geoData;
 
 			let toFetch = [getData(`https://eu1.locationiq.com/v1/timezone.php?key=pk.f129abed2b7d229581d6dc9f0e9e3dbe&lat=${lat}&lon=${lon}&format=json&limit=1`), getData(`https://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civil&output=json`), getData(`https://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civillight&output=json`)]
-			let toFetch = [getData(`
-			s://eu1.locationiq.com/v1/timezone.php?key=pk.f129abed2b7d229581d6dc9f0e9e3dbe&lat=${lat}&lon=${lon}&format=json&limit=1`), getData(`https://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civil&output=json`), getData(`https://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civillight&output=json`)]
 
 			const [timezone, civil, civillight] = await Promise.all(toFetch).then(data=>data)
 
