@@ -207,8 +207,8 @@ p{
 }
 
 .daily-weather-icon > img{
-	margin-bottom: 1rem;
-	width: 50px;
+	margin-bottom: 0.5rem;
+	width: 4rem;
 	height: auto;
 	-webkit-filter: drop-shadow(5px 5px 5px #222);
   	filter: drop-shadow(5px 5px 5px rgb(0 0 0 / 30%));
@@ -216,6 +216,7 @@ p{
 
 .daily-weather-icon > p{
 	font-size: 1.7rem;
+	text-align: center;
 }
 
 .daily-weather-stats{

@@ -8,8 +8,7 @@ const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", 
 const weekdays = ['Monday', "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 const definitions = {
 	weather: {
-		clearday: "Clear Day", clearnight: "Clear Night", pcloudyday: "Partly Cloudy Day", pcloudynight: "Partly Cloudy Night", mcloudyday: "Mostly Cloudy Day", mcloudynight: "Mostly Cloudy Night", cloudyday:"Cloudy Day", cloudynight:"Cloudy Night", humidday:"Humid Day", humidnight:"Humid Night", lightrainday: "Light Rain Day", lightrainnight: "Light Rain Night", oshowerday: "Occasional Shower Day", oshowernight: "Occasional Shower Night", ishowerday: "Isolated Shower Day", ishowernight: "Isolated Shower Night", lightsnowday:"Light Snow Day", lightsnownight: "Light Snow Night", rainday: "Rainy Day", rainnight: "Rainy Night", snowday: "Snowy Day", snownight: "Snowy Night", rainsnowday: "Rain Snow Day", rainsnownight: "Rain Snow Night"
-
+		clearday: "Clear Day", clearnight: "Clear Night", pcloudyday: "Partly Cloudy Day", pcloudynight: "Partly Cloudy Night", mcloudyday: "Mostly Cloudy Day", mcloudynight: "Mostly Cloudy Night", cloudyday:"Cloudy Day", cloudynight:"Cloudy Night", humidday:"Humid Day", humidnight:"Humid Night", lightrainday: "Light Rain Day", lightrainnight: "Light Rain Night", oshowerday: "Occasional Shower Day", oshowernight: "Occasional Shower Night", ishowerday: "Isolated Shower Day", ishowernight: "Isolated Shower Night", lightsnowday:"Light Snow Day", lightsnownight: "Light Snow Night", rainday: "Rainy Day", rainnight: "Rainy Night", snowday: "Snowy Day", snownight: "Snowy Night", rainsnowday: "Rain Snow Day", rainsnownight: "Rain Snow Night", tsday: 'Thunder Storm Day', tsnight: 'Thunder Storm Night', 'tsrainday': 'Thunder Storm Rain Day', 'tsrainnight': 'Thunder Storm Rain Night'
 	},
 	cloudCover: {"1": "0%-6%","2": "6%-19%","3": "19%-31%","4": "31%-44%","5": "44%-56%","6": "56%-69%","7": "69%-81%","8": "81%-94%","9": "94%-100%"},
 	wind10m: {"1":"Below 1<span class='low-opacity'> km/h</span> (calm)","2":"1-12<span class='low-opacity'> km/h</span> (light)","3":"12-29<span class='low-opacity'> km/h</span> (moderate)","4":"29-39<span class='low-opacity'> km/h</span> (fresh)","5":"39-62<span class='low-opacity'> km/h</span> (strong)","6":"62-88<span class='low-opacity'> km/h</span> (gale)","7":"88-117<span class='low-opacity'> km/h</span> (storm)","8":"Over 117<span class='low-opacity'> km/h</span> (hurricane)"}
@@ -236,7 +235,6 @@ function showWeather(){
 		app.innerHTML+=html;
 		dailyWeatherHeads = app.querySelectorAll('.daily-weather-info-head')
 		dailyWeatherHeads.forEach(el=>el.addEventListener('click', toggleDailyWeatherOpen))
-
 	}
 }
 
