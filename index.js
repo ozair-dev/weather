@@ -138,10 +138,11 @@ function normalizeWeather(geoData, civil, civillight){
 	normalizedCivil = normalizedCivil.slice(currentWeatherIndedx)
 
 	// binding daily weather with its corresponding hourly weather data
-	const weather = civillight.dataseries.map(data=>{
+	let weather = civillight.dataseries.map(data=>{
 		const weatherToday = normalizedCivil.filter(weather=>new Date(weather.timepoint).getDate() == String(data.date).slice(6));
 		return {data, dataseries: weatherToday}
 	})
+	weather = weather.filter(day=>day.dataseries.length)
 	return weather;
 }
 
