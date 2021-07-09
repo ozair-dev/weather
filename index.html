@@ -12,7 +12,7 @@
 	<!-- google-fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Noto+Sans+JP&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -23,7 +23,6 @@
 			<form id="search-form" submit="false" autocomplete="off" >
 				<svg  onclick="searchBarToggleOpen()" id="search-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
 				<i class="fas fa-spinner loading-icon" id="loading-icon"></i>
-				<!-- <input autocomplete="false" name="hidden" type="text" style="display:none;"> -->
 				<input placeholder="Search..." id="search-input" type="text">
 			</form>
 			<button onclick="findByCoords()" id="use-location-button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
@@ -32,88 +31,13 @@
 		</div>
 	</nav>
 	<div id="app">
-			<p id="location-info">Chak Bhoun, Chakwal</p>
-			<div class="daily-weather-info">
-				<div class="daily-weather-info-head">
-					<div class="daily-weather-date">
-						<p>May 12</p>
-						<p>Saturday</p>
-					</div>
-
-					<div class="daily-weather-icon">
-						<img src="./pngs/thundercloud0.png">
-						<p>Thunder clouds</p>
-					</div>
-					<div class="daily-weather-stats">
-						<p>Temp: <span class="temp-max">32&deg</span> <span class="temp-min">28&deg</span></p>
-						<p>Wind: 5-8 km/h (moderate)</p>
-					</div>
-					<i class="fas fa-chevron-down"></i>
-					</div>
-					<div class="daily-weather-info-div">
-						<div class="weather-info"></div>
-						<div class="three-hourly-weather-div">
-							<div class="three-hourly-weather-button">
-								<p>now</p>
-								<div>
-									<img src="./pngs/mcloudyday.png" alt="">
-								</div>
-								<p>33&deg</p>
-							</div>
-
-							<div class="three-hourly-weather-button">
-								<p>now</p>
-								<div>
-									<img src="./pngs/mcloudyday.png" alt="">
-								</div>
-								<p>33&deg</p>
-							</div>
-							<div class="three-hourly-weather-button">
-								<p>now</p>
-								<div>
-									<img src="./pngs/mcloudyday.png" alt="">
-								</div>
-								<p>33&deg</p>
-							</div>
-							<div class="three-hourly-weather-button">
-								<p>now</p>
-								<div>
-									<img src="./pngs/mcloudyday.png" alt="">
-								</div>
-								<p>33&deg</p>
-							</div>
-							<div class="three-hourly-weather-button">
-								<p>now</p>
-								<div>
-									<img src="./pngs/mcloudyday.png" alt="">
-								</div>
-								<p>33&deg</p>
-							</div>
-							<div class="three-hourly-weather-button">
-								<p>now</p>
-								<div>
-									<img src="./pngs/mcloudyday.png" alt="">
-								</div>
-								<p>33&deg</p>
-							</div>
-							<div class="three-hourly-weather-button">
-								<p>now</p>
-								<div>
-									<img src="./pngs/mcloudyday.png" alt="">
-								</div>
-								<p>33&deg</p>
-							</div>
-							<div class="three-hourly-weather-button">
-								<p>now</p>
-								<div>
-									<img src="./pngs/mcloudyday.png" alt="">
-								</div>
-								<p>33&deg</p>
-							</div>
-
-						</div>
-					</div>
-			</div>
+			<div class="dummy-weather-now"></div>
+			<div class='dummy-weather'></div>
+			<div class='dummy-weather'></div>
+			<div class='dummy-weather'></div>
+			<div class='dummy-weather'></div>
+			<div class='dummy-weather'></div>
+			<div class='dummy-weather'></div>
 	</div>
 </body>
 
