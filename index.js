@@ -6,7 +6,7 @@ const app = document.querySelector('#app')
 let dailyWeatherHeads = app.querySelectorAll('.daily-weather-info-head')
 let threeHourlyButtons;
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"]
-const weekdays = ['Monday', "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+const weekdays = ["Sunday", 'Monday', "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 const definitions = {
 	weather: {
@@ -130,9 +130,7 @@ async function getData(url){
 function normalizeCivil(civil){
 	const {init} = civil;
 	const [year, month,day,hour] = [Number(init.slice(0,4)), Number(init.slice(4,6))-1, Number(init.slice(6,8)), Number(init.slice(8))]
-
 	const initTime = new Date(year,month,day,hour,null,null,null).getTime()
-	
 	const {offset_sec} = JSON.parse(localStorage.getItem('geoData'))
 	
 	const normalized = civil.dataseries.map(weather=>({...weather, timepoint: initTime+(offset_sec*1000)+(weather.timepoint*3600000)}))
@@ -149,12 +147,12 @@ function normalizeWeather(){
 		let normalizedCivil = normalizeCivil(civil);
 		const currentTime = getCurrentTime();
 		// gives the index of current time. (api give us previous weather history which is not required here)
-		const currentWeatherIndedx = normalizedCivil.findIndex(weather=>currentTime.getTime()>=weather.timepoint && currentTime.getTime()<weather.timepoint+(3*3600000));
+		const currentWeatherIndedx = normalizedCivil.findIndex(weather=>currentTime.getTime()>=weather.timepoint && currentTime.getTime() < weather.timepoint+(3*3600000));
 		normalizedCivil = normalizedCivil.slice(currentWeatherIndedx)
 	
 		// binding daily weather with its corresponding hourly weather data
 		let weather = civillight.dataseries.map(data=>{
-			const weatherToday = normalizedCivil.filter(weather=>new Date(weather.timepoint).getDate() == String(data.date).slice(6));
+		const weatherToday = normalizedCivil.filter(weather=>new Date(weather.timepoint).getDate() == String(data.date).slice(6));
 			return {data, dataseries: weatherToday}
 		})
 		weather = weather.filter(day=>day.dataseries.length)
@@ -177,7 +175,7 @@ function getCurrentTime(){
 
 showWeather()
 
-function toggleDailyWeatherOpen(e){
+function toggleDailyWeatherOpen(){
 	if(!this.parentNode.classList.contains('open')){
 		this.parentNode.classList.add('open')
 	}else{
@@ -211,13 +209,11 @@ function getThreeHoursButtons(day, dayIdx){
 	});
 	return buttons.join('')
 }
-
 function getWeatherInfoHTML(weather){
-	const html = weather.map((day, dayIdx)=>{
+		const html = weather.map((day, dayIdx)=>{
 		const threeHourlyButtons = getThreeHoursButtons(day, dayIdx);
-		const [year, month, date] = [String(day.data.date).slice(0,4), String(day.data.date).slice(4,6), String(day.data.date).slice(6)]
+		const [year, month, date] = [String(day.data.date).slice(0,4), Number(String(day.data.date).slice(4,6))-1, String(day.data.date).slice(6)]
 		const time = new Date(year, month, date, null, null,null, null)
-
 		let img = day.data.weather;
 		if(!['humid', 'lightrain', 'oshower', 'lightrain', 'ishower','lightsnow', 'rain', 'snow','rainsnow', 'ts', 'tsrain'].some(w=>w==img)){
 			img+="day";
@@ -227,7 +223,7 @@ function getWeatherInfoHTML(weather){
 					<div class="daily-weather-info ${dayIdx==0 && 'open'}">
 						<div class="daily-weather-info-head">
 							<div class="daily-weather-date">
-								<p>${months[time.getMonth()-1]} ${time.getDate()}</p>
+								<p>${months[time.getMonth()]} ${time.getDate()}</p>
 								<p>${weekdays[time.getDay()]}</p>
 							</div>
 		

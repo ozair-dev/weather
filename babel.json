@@ -1,5 +1,19 @@
 {
   "stories": [],
   "versions": [],
-  "backups": []
+  "backups": [
+    {
+      "timestamp": 1626355994921,
+      "localPath": "/home/ozair/Documents/BabelWorkspaceBackups/babel-2021-07-15.backup.zip",
+      "cloudProviders": [],
+      "id": "c7be135d-e3d3-4bb0-83e5-5ddd7041712a"
+    },
+    {
+      "timestamp": 1627025792396,
+      "localPath": "/home/ozair/Documents/BabelWorkspaceBackups/babel-2021-07-23.backup.zip",
+      "cloudProviders": [],
+      "id": "2d6b1d4b-0dba-4ed6-87e9-3fa5b9c36611"
+    }
+  ],
+  "activity": []
 }
